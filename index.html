@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Hunters — Equipo Central Comercial </title>
+<title>Dashboard Hunters — Equipo Comercial Peru</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -109,7 +109,7 @@ canvas{display:block}
 <div class="sb">
   <div class="sb-brand">
     <div class="sb-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-    <div><div class="sb-t">Dashboard Central Comercial /div><div class="sb-s">Dashboard comercial</div></div>
+    <div><div class="sb-t">Hunters Peru</div><div class="sb-s">Dashboard comercial</div></div>
   </div>
   <div class="sb-nav">
     <div class="sb-sec">Principal</div>
@@ -346,7 +346,7 @@ canvas{display:block}
       <div class="krow k4" style="margin-bottom:14px">
         <div class="kpi"><div class="kbar" style="background:#00E5A0"></div><div class="klbl">QR Activos — Abril</div><div class="kval" style="color:#00E5A0">16</div><div class="ksub"><span class="bge bu">&gt;S/.500</span></div></div>
         <div class="kpi"><div class="kbar" style="background:#F59E0B"></div><div class="klbl">QR Pendientes — Abril</div><div class="kval" style="color:#F59E0B">12</div><div class="ksub"><span class="bge bw">Por activar</span></div></div>
-        <div class="kpi"><div class="kbar" style="background:#EF4444"></div><div class="klbl">QR No superan la cuota — Abril</div><div class="kval" style="color:#EF4444">12</div></div>
+        <div class="kpi"><div class="kbar" style="background:#EF4444"></div><div class="klbl">QR No llegan a la cuota</div><div class="kval" style="color:#EF4444">12</div><div class="ksub"><span class="bge" style="background:rgba(239,68,68,.12);color:#EF4444">Cuota &gt; S/.500</span></div></div>
         <div class="kpi"><div class="kbar" style="background:#3B82F6"></div><div class="klbl">Monto QR — Abril</div><div class="kval" style="color:#3B82F6">S/.61,477</div><div class="ksub"><span class="bge bu">&gt;S/.500</span></div></div>
       </div>
       <div class="g2">
@@ -365,8 +365,8 @@ canvas{display:block}
       </div>
     
       <div style="margin-top:14px;padding:14px;background:rgba(255,255,255,.02);border-radius:12px;border:1px solid rgba(255,255,255,.06)">
-        <div style="font-size:12px;font-weight:700;color:var(--t1);margin-bottom:4px">Proyeccion QR Pendientes — ¿Llegan a S/.500 al dia 30?</div>
-        <div style="font-size:10px;color:var(--t3);margin-bottom:12px">12 pendientes · Barra sólida = real dia 21 · Barra tenue = proyección dia 30 · Meta: S/.500</div>
+        <div style="font-size:12px;font-weight:700;color:var(--t1);margin-bottom:4px">QR No llegan a la cuota — Abril (Cuota &gt; S/.500)</div>
+        <div style="font-size:10px;color:var(--t3);margin-bottom:12px">12 QR que no alcanzan la cuota de S/.500 · Barra sólida = real dia 21 · Barra tenue = proyección dia 30</div>
           <div style="margin-bottom:10px;padding:10px;background:rgba(255,255,255,.03);border-radius:10px;border:1px solid rgba(255,255,255,.06)">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
               <div style="display:flex;align-items:center;gap:8px">
@@ -1050,7 +1050,7 @@ function rC(){
 }
  
 // ── NAV ─────────────────────────────────────────────────────
-const PAGES={p1:{title:'Resumen general',sub:'Corte al 21 de Abril 2026 · Enero — Abril',build:bP1},p2:{title:'Ranking — Solo Abril 2026',sub:'Captura 70% + RUC 10% + QR 10% + Arisale 10% · Al dia 21 de Abril',build:bP2},p3:{title:'4 graficos de lineas por mes',sub:'Enero · Febrero · Marzo · Abril',build:bP3},p4:{title:'Curva Abril',sub:'Abr-07 al Abr-21 — 5 cortes',build:bP4},p5:{title:'Arisale — Solo Abril 2026',sub:'5 licencias · S/.295 · Carrera Medina — ANA CAPRI',build:bP5},p6:{title:'QR Parlante — Solo Abril 2026',sub:'12 QR pendientes · S/.61,477 monto · 16 activos',build:bP6},p7:{title:'Cuentas — Ene a Abr 21',sub:'Razon Social · Potencial · Ene · Feb · Mar · Abr-07 · Abr-13 · Abr-16 · Abr-20 · Proy',build:function(){updCC();rC();}}};
+const PAGES={p1:{title:'Resumen general',sub:'Corte al 21 de Abril 2026 · Enero — Abril',build:bP1},p2:{title:'Ranking — Solo Abril 2026',sub:'Captura 70% + RUC 10% + QR 10% + Arisale 10% · Al dia 21 de Abril',build:bP2},p3:{title:'4 graficos de lineas por mes',sub:'Enero · Febrero · Marzo · Abril',build:bP3},p4:{title:'Curva Abril',sub:'Abr-07 al Abr-21 — 5 cortes',build:bP4},p5:{title:'Arisale — Solo Abril 2026',sub:'5 licencias · S/.295 · Carrera Medina — ANA CAPRI',build:bP5},p6:{title:'QR Parlante — Solo Abril 2026',sub:'16 activos · 12 no llegan a cuota S/.500 · Monto S/.61,477',build:bP6},p7:{title:'Cuentas — Ene a Abr 21',sub:'Razon Social · Potencial · Ene · Feb · Mar · Abr-07 · Abr-13 · Abr-16 · Abr-20 · Proy',build:function(){updCC();rC();}}};
 const done={};
 function go(id,btn){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
