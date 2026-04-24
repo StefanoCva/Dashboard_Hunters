@@ -104,7 +104,7 @@ canvas{display:block}
 </head>
 <body>
 <div class="shell">
- 
+
 <!-- SIDEBAR -->
 <div class="sb">
   <div class="sb-brand">
@@ -128,7 +128,7 @@ canvas{display:block}
     <div id="sbH"></div>
   </div>
 </div>
- 
+
 <!-- MAIN -->
 <div class="main">
   <div class="topbar">
@@ -146,9 +146,9 @@ canvas{display:block}
       <div class="chip-live"><div class="dot-live"></div>ABR-21</div>
     </div>
   </div>
- 
+
   <div class="content">
- 
+
     <!-- P1 RESUMEN -->
     <div id="p1" class="pg on">
       <!-- FILA MARZO -->
@@ -185,13 +185,13 @@ canvas{display:block}
         <div class="panel"><div class="ph"><div class="pt">Score % meta — Abril</div></div><div style="position:relative;height:160px"><canvas id="cSco"></canvas></div></div>
       </div>
     </div>
- 
+
     <!-- P2 RANKING -->
     <div id="p2" class="pg">
       <div style="font-size:13px;font-weight:600;color:var(--t1);margin-bottom:14px">Ranking completo — 12 hunters <span style="font-size:11px;color:var(--t3);font-weight:400">· Captura 70% + RUC 10% + QR 10% + Arisale 10% · Abr-07 al Abr-21</span></div>
       <div class="rl" id="rkList"></div>
     </div>
- 
+
     <!-- P3 LINEAS -->
     <div id="p3" class="pg">
       <div class="g2" style="margin-bottom:14px">
@@ -203,7 +203,7 @@ canvas{display:block}
         <div class="panel"><div class="ph"><div class="pt">Abril 2026 — 5 cortes <span style="font-size:10px;color:var(--a3)">En curso · Abr-07 al Abr-21</span></div></div><div style="position:relative;height:200px"><canvas id="cAbr"></canvas></div><div style="margin-top:10px;font-size:11px;color:var(--t3)">Real dia 21: <span style="color:#00E5A0;font-family:var(--m);font-weight:700">S/.647,967</span> &nbsp; Proy: <span style="color:#A855F7;font-family:var(--m);font-weight:700">S/.2,501,809</span></div></div>
       </div>
     </div>
- 
+
     <!-- P4 CURVA -->
     <div id="p4" class="pg">
       <div class="panel" style="margin-bottom:14px">
@@ -217,7 +217,7 @@ canvas{display:block}
         <div style="position:relative;height:230px"><canvas id="cHL"></canvas></div>
       </div>
     </div>
- 
+
     <!-- P5 ARISALE ABRIL -->
     <div id="p5" class="pg">
       <div class="krow k3" style="margin-bottom:14px">
@@ -340,7 +340,7 @@ canvas{display:block}
         </div>
       </div>
     </div>
- 
+
     <!-- P6 QR ABRIL -->
     <div id="p6" class="pg">
       <div class="krow k4" style="margin-bottom:14px">
@@ -596,7 +596,7 @@ canvas{display:block}
             </div>
           </div>
       </div></div>
- 
+
     <!-- P7 CUENTAS -->
     <div id="p7" class="pg">
       <div class="panel" style="margin-bottom:12px">
@@ -625,7 +625,7 @@ canvas{display:block}
   </div>
 </div>
 </div>
- 
+
 <script>
 const RANK=[
   {pos:1,n:'CRISTIAN HUAMAN',ini:'CH',t:'JUNIOR',tenure:'2 MESES',score:98.5,incr:109.8,incrVal:274406.11,rucPct:100.0,rucN:3,qrPct:50.0,qrN:1.5,arisPct:66.7,arisVal:120.00,badge:'TOP PERFORMER',col:'#00C9FF',ms:[117897,234172,293831,343792,515455,548160],as:[0,-296830,-79365]},
@@ -717,19 +717,19 @@ const clrP=p=>p>=100?'#00E5A0':p>=50?'#F59E0B':'#EF4444';
 const CHS={};const dc=id=>{if(CHS[id]){CHS[id].destroy();delete CHS[id];}};
 const medals=['🥇','🥈','🥉'];
 const dkO=(leg=false)=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:leg,position:'top',labels:{font:{size:10,family:'Outfit'},color:'#8BA0BC',boxWidth:10,padding:10}},tooltip:{callbacks:{label:c=>`${c.dataset.label||''}: ${fm(c.raw||0)}`},bodyFont:{size:10,family:'Outfit'},backgroundColor:'#1A2235',titleColor:'#F0F6FF',bodyColor:'#8BA0BC',borderColor:'rgba(255,255,255,.1)',borderWidth:1}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#506080',font:{size:9,family:'Outfit'}}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#506080',font:{size:9,family:'Space Mono'},callback:v=>{const a=Math.abs(v);return(v<0?'-':'')+'S/.'+(a>=1e6?(a/1e6).toFixed(1)+'M':a>=1000?(a/1000).toFixed(0)+'K':a)}}}}});
- 
+
 // ── SIDEBAR TOP 5 ──────────────────────────────────────────
 const RA5=[...RANK_ABR].sort((a,b)=>b.score-a.score).slice(0,5);
 document.getElementById('sbH').innerHTML=RA5.map(h=>`<div class="sb-hrow"><div class="sb-av" style="background:${h.col}22;color:${h.col}">${h.ini}</div><div class="sb-hn">${h.n}</div><div class="sb-hp" style="color:${clrS(h.score)}">${h.score}%</div></div>`).join('');
- 
+
 // ── HUNTER SELECTS ─────────────────────────────────────────
 ['hSel','f7h'].forEach(id=>{const s=document.getElementById(id);RANK.filter(r=>r.pos<12).forEach(h=>{const o=document.createElement('option');o.value=h.n;o.textContent=h.n.split(',')[0].trim();s.appendChild(o);});});
- 
+
 // ── TABLE HEADER ───────────────────────────────────────────
 document.getElementById('cTH').innerHTML=['Hunter','Mes','Tipo','Razon Social','Potencial','Ene','Feb','Mzo','Abr-07','Abr-13','Abr-16','Abr-20','Abr-21','Proy'].map(t=>`<th style="font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#506080;padding:0 8px 10px;text-align:${['Potencial','Ene','Feb','Mzo','Abr-07','Abr-13','Abr-16','Abr-20','Abr-21','Proy'].includes(t)?'right':'left'};border-bottom:1px solid rgba(255,255,255,.05);white-space:nowrap">${t}</th>`).join('');
- 
+
 // ── P1 ─────────────────────────────────────────────────────
- 
+
 // ── RANKING ABRIL (proyeccion al dia 13) ─────────────────────
 const RANK_ABR_SCORES={'CRISTIAN HUAMAN':194.2,'ANA CARRERA':147.0,'MELISSA VASQUEZ':144.8,'OLIVER LOPEZ':101.9,'ANDREA SOTO':97.3,'ROSA TORRES':74.8,'MELISA LLACCHUAS':43.8,'ANALIZ CASTILLO':26.3,'ALICIA QUINONES':25.8,'PATRICIA ASTORGA':23.5,'JOEL BLAS':1.9,'YASMIN CHECA':0.0};
 const RANK_ABR_VALS={'CRISTIAN HUAMAN':598669,'ANA CARRERA':446111,'MELISSA VASQUEZ':452759,'OLIVER LOPEZ':380949,'ANDREA SOTO':322359,'ROSA TORRES':259143,'MELISA LLACCHUAS':88764,'ANALIZ CASTILLO':78579,'ALICIA QUINONES':0,'PATRICIA ASTORGA':0,'JOEL BLAS':7660,'YASMIN CHECA':0};
@@ -762,7 +762,7 @@ function bP1(){
   dc('cAB');CHS['cAB']=new Chart(document.getElementById('cAB'),{type:'bar',data:{labels:['AC','PA','CH','ML','MV','AQ'],datasets:[{label:'Valor cerrado S/.',data:[531,405,118,118,118,59],backgroundColor:['#A855F7CC','#00E5A0CC','#00C9FFCC','#FF6B9DCC','#FF6B6BCC','#FF8C42CC'],borderWidth:0,borderRadius:6}]},options:{...dkO(),scales:{x:{grid:{display:false},ticks:{color:'#506080',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#506080',font:{size:9}}}}}});
   dc('cSco');CHS['cSco']=new Chart(document.getElementById('cSco'),{type:'bar',data:{labels:RANK_sorted_abr.map(h=>h.ini),datasets:[{label:'Score Abril',data:RANK_sorted_abr.map(h=>Math.max(0,RANK_ABR_SCORES[h.n]||0)),backgroundColor:RANK_sorted_abr.map(h=>clrS(RANK_ABR_SCORES[h.n]||0)+'BB'),borderWidth:0,borderRadius:5}]},options:{...dkO(),scales:{x:{grid:{display:false},ticks:{color:'#506080',font:{size:9,family:'Space Mono'}}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#506080',font:{size:9},callback:v=>v+'%'}}}}})
 }
- 
+
 // ── P2 RANKING ─────────────────────────────────────────────
 function bP2(){
   const medals=['🥇','🥈','🥉'];
@@ -791,7 +791,7 @@ function bP2(){
     </div>`;
   }).join('');
 }
- 
+
 // ── P3 ─────────────────────────────────────────────────────
 function bP3(){
   // ENERO: del dia 1 al 31, cierre S/.424,922
@@ -839,7 +839,7 @@ function bP3(){
   }
 });
 }
- 
+
 // ── P4 ─────────────────────────────────────────────────────
 function bP4(){
   dc('cCurva');CHS['cCurva']=new Chart(document.getElementById('cCurva'),{type:'line',
@@ -879,7 +879,7 @@ const TRAJ_ABR=[
   {fullname:'JOEL BLAS',        label:'JB',borderColor:'#3B82F6',data:[57,106,131,704,5191]},
   {fullname:'YASMIN CHECA',     label:'YC',borderColor:'#888780',data:[0,0,0,0,0]},
 ];
- 
+
 function updH(){
   const v=document.getElementById('hSel').value;
   const labels=['Abr-07','Abr-13','Abr-16','Abr-20','Abr-21'];
@@ -914,7 +914,7 @@ function updH(){
     }
   });
 }
- 
+
 // ── P5 ─────────────────────────────────────────────────────
 function bP5(){
   const ARIS_ABR=[
@@ -943,7 +943,7 @@ function bP5(){
       plugins:{legend:{position:'right',labels:{font:{size:10,family:'Outfit'},color:'#8BA0BC',boxWidth:10,padding:8}},
                tooltip:{callbacks:{label:c=>`${c.label}`},backgroundColor:'#1A2235',titleColor:'#F0F6FF',bodyColor:'#8BA0BC',borderColor:'rgba(255,255,255,.1)',borderWidth:1}}}})
 }
- 
+
 // ── P6 ─────────────────────────────────────────────────────
 function bP6(){
   // Tabla QR — activos y pendientes por hunter
@@ -996,7 +996,7 @@ function bP6(){
   ];
   document.getElementById('qrMeta').innerHTML=QP.map(q=>{const pct=Math.min(100,Math.round(q.act/3*100));const col=pct>=100?'#00E5A0':pct>=50?'#F59E0B':'#EF4444';const lbl=q.act>0?`${q.act} activos${q.pend>0?' · '+q.pend+' pend.':''} · S/.${q.monto.toLocaleString()}`:'Sin QR'+(q.pend>0?` · ${q.pend} pend.`:'');return`<div style="margin-bottom:7px"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:${q.col}"></div><span style="font-size:10px;color:var(--t1)">${q.n}</span></div><span style="font-size:10px;font-family:var(--m);color:${col}">${pct}%</span></div><div style="height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;margin-bottom:1px"><div style="width:${pct}%;height:100%;background:${col};border-radius:3px"></div></div><div style="font-size:9px;color:var(--t3)">${lbl}</div></div>`;}).join('');
 }
- 
+
 // ── P7 ─────────────────────────────────────────────────────
 function initP7(){
   ['hSelC','f7h'].forEach(id=>{
@@ -1048,7 +1048,7 @@ function rC(){
   const act=rows.filter(c=>c.a21>200).length,cai=rows.filter(c=>c.a21<-500).length;
   document.getElementById('cRes').textContent=`${rows.length} cuentas · Activas: ${act} · Caidas: ${cai} · Minimas: ${rows.length-act-cai}`;
 }
- 
+
 // ── NAV ─────────────────────────────────────────────────────
 const PAGES={p1:{title:'Resumen general',sub:'Corte al 21 de Abril 2026 · Enero — Abril',build:bP1},p2:{title:'Ranking — Solo Abril 2026',sub:'Captura 70% + RUC 10% + QR 10% + Arisale 10% · Al dia 21 de Abril',build:bP2},p3:{title:'4 graficos de lineas por mes',sub:'Enero · Febrero · Marzo · Abril',build:bP3},p4:{title:'Curva Abril',sub:'Abr-07 al Abr-21 — 5 cortes',build:bP4},p5:{title:'Arisale — Solo Abril 2026',sub:'5 licencias · S/.295 · Carrera Medina — ANA CAPRI',build:bP5},p6:{title:'QR Parlante — Solo Abril 2026',sub:'16 activos · 12 no llegan a cuota S/.500 · Monto S/.61,477',build:bP6},p7:{title:'Cuentas — Ene a Abr 21',sub:'Razon Social · Potencial · Ene · Feb · Mar · Abr-07 · Abr-13 · Abr-16 · Abr-20 · Proy',build:function(){updCC();rC();}}};
 const done={};
